@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SIAKAD - Dashboard Sistem Asset & Peminjaman</title>
+
+    <!-- Custom fonts -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!-- Sidebar ASLI LENGKAP -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Rental ps <sup>admin</sup></div>
+            </a>
+
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">Kelola DATA</div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="master_asset.html">
+                    <i class="fas fa-fw fa-boxes"></i>
+                    <span>Master Unit PSt</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="transaksi.html">
+                    <i class="fas fa-fw fa-clipboard-list"></i>
+                    <span>Transaksi sewa</span></a>
+            </li>
+
+            <hr class="sidebar-divider d-none d-md-block">
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small font-weight-bold">Dr. Dosen Pengampuh, M.Kom</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Page Content -->
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800 font-weight-bold">
+                            <i class="fas fa-tachometer-alt text-primary mr-2"></i> Dashboard Manajemen Asset & Akademik
+                        </h1>
+                        <a href="transaksi.html" class="btn btn-sm btn-primary shadow-sm font-weight-bold">
+                            <i class="fas fa-plus fa-sm text-white-50 mr-1"></i> Input Peminjaman Baru
+                        </a>
+                    </div>
+
+                    <!-- Row 4 Kartu Statistik Live Server -->
+                    <div class="row">
+                        <!-- Total Asset -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Asset Kampus</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="statTotalAsset">
+                                                <i class="fas fa-spinner fa-spin fa-sm text-muted"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-boxes fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Mahasiswa -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Mahasiswa Terdaftar</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="statTotalMhs">
+                                                <i class="fas fa-spinner fa-spin fa-sm text-muted"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Asset Dipinjam -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Asset Sedang Dipinjam</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="statAssetDipinjam">
+                                                <i class="fas fa-spinner fa-spin fa-sm text-muted"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-check fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Asset Tersedia -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Asset Tersedia</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="statAssetTersedia">
+                                                <i class="fas fa-spinner fa-spin fa-sm text-muted"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-check-circle fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>SIAKAD &copy; Sistem Informasi Akademik</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- SCRIPT HITUNG STATISTIK DARI 3 API RESMI -->
+    <script>
+        const API_READ_ASSET      = "https://api.melangkah.my.id/asset/read.php";
+        const API_READ_MHS        = "https://api.melangkah.my.id/mahasiswa/read.php";
+        const API_READ_PEMINJAMAN = "https://api.melangkah.my.id/peminjaman/read.php";
+
+        async function loadAllDashboardData() {
+            // Tampilkan icon loading
+            $("#statTotalAsset").html('<i class="fas fa-spinner fa-spin fa-sm text-muted"></i>');
+            $("#statTotalMhs").html('<i class="fas fa-spinner fa-spin fa-sm text-muted"></i>');
+            $("#statAssetDipinjam").html('<i class="fas fa-spinner fa-spin fa-sm text-muted"></i>');
+            $("#statAssetTersedia").html('<i class="fas fa-spinner fa-spin fa-sm text-muted"></i>');
+
+            try {
+                // Tarik data live dari 3 API secara bersamaan
+                const [resAsset, resMhs, resPinjam] = await Promise.all([
+                    fetch(API_READ_ASSET).then(r => r.json()).catch(() => []),
+                    fetch(API_READ_MHS).then(r => r.json()).catch(() => []),
+                    fetch(API_READ_PEMINJAMAN).then(r => r.json()).catch(() => [])
+                ]);
+
+                const assetList  = Array.isArray(resAsset) ? resAsset : (resAsset.data || []);
+                const mhsList    = Array.isArray(resMhs) ? resMhs : (resMhs.data || []);
+                const pinjamList = Array.isArray(resPinjam) ? resPinjam : (resPinjam.data || []);
+
+                // 1. Total Asset Kampus
+                $("#statTotalAsset").text(assetList.length + " Asset");
+
+                // 2. Total Mahasiswa Terdaftar
+                $("#statTotalMhs").text(mhsList.length + " Mahasiswa");
+
+                // 3. Asset Sedang Dipinjam
+                const countDipinjam = pinjamList.filter(p => {
+                    const st = (p.status_peminjaman || "").toLowerCase();
+                    return st.includes("pinjam");
+                }).length;
+                $("#statAssetDipinjam").text(countDipinjam + " Dipinjam");
+
+                // 4. Asset Tersedia
+                const countTersedia = assetList.filter(a => {
+                    const st = (a.status || "").toLowerCase();
+                    return st.includes("tersedia") || st === "";
+                }).length;
+                $("#statAssetTersedia").text(countTersedia + " Tersedia");
+
+            } catch (error) {
+                console.error("Gagal sinkronisasi dashboard:", error);
+                $("#statTotalAsset").text("0 Asset");
+                $("#statTotalMhs").text("0 Mahasiswa");
+                $("#statAssetDipinjam").text("0 Dipinjam");
+                $("#statAssetTersedia").text("0 Tersedia");
+            }
+        }
+
+        $(document).ready(function () {
+            loadAllDashboardData();
+        });
+    </script>
+</body>
+</html>
